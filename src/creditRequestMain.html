@@ -1,0 +1,100 @@
+<template>
+  <lightning-card title="Nome do Grupo" icon-name="standard:account">
+    <lightning-button-menu slot="actions" alternative-text="Show menu" menu-alignment="auto">
+      <lightning-menu-item value="createGroupSubLimit" label="Criar Sublimite"></lightning-menu-item>
+    </lightning-button-menu>
+    <div class="card">
+      <lightning-layout>
+        <lightning-layout-item>
+          <lightning-input type="number" disabled formatter="currency" step=".01" variant="standard"
+            name="limitGroupTotal" value="100000" label="Limite Total Solicitado Pelo Grupo" placeholder="R$">
+          </lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item padding="horizontal-small">
+          <lightning-input type="number" disabled formatter="currency" step=".01" variant="standard"
+            name="cleanGroupTotal" value="100000" label="Clean Total do Grupo" placeholder="R$"></lightning-input>
+        </lightning-layout-item>
+      </lightning-layout>
+      <br />
+      <div class="tableBorder">
+        <lightning-datatable key-field="id" resize-column-disabled hide-checkbox-column columns={customerColumns}
+          data={customers}>
+        </lightning-datatable>
+      </div>
+      <template if:true={haveSublimits}>
+        <lightning-accordion allow-multiple-sections-open>
+          <lightning-accordion-section name="subLimit" label="Sublimites">
+            <c-credit-request-limits limits={limits}></c-credit-request-limits>
+          </lightning-accordion-section>
+        </lightning-accordion>
+      </template>
+      <template if:true={haveGuarantorGroup}>
+        <lightning-accordion allow-multiple-sections-open>
+          <lightning-accordion-section name="guarantorGroup" label="Grupos de Garantidores">
+            EM DESENVOLVIMENTO
+          </lightning-accordion-section>
+        </lightning-accordion>
+      </template>
+    </div>
+  </lightning-card>
+</template>
+<!--<template>
+  <lightning-card title="Nome do Grupo" icon-name="standard:account">
+    <lightning-button-menu slot="actions" alternative-text="Show menu" menu-alignment="auto">
+      <lightning-menu-item value="createGroupSubLimit" label="Criar Sublimite"></lightning-menu-item>
+    </lightning-button-menu>
+    <div class="card">
+      <lightning-layout>
+        <lightning-layout-item>
+          <lightning-input type="number" disabled formatter="currency" step=".01" variant="standard"
+            name="limitGroupTotal" value="100000" label="Limite Total Solicitado Pelo Grupo" placeholder="R$">
+          </lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item padding="horizontal-small">
+          <lightning-input type="number" disabled formatter="currency" step=".01" variant="standard"
+            name="cleanGroupTotal" value="100000" label="Clean Total do Grupo" placeholder="R$"></lightning-input>
+        </lightning-layout-item>
+      </lightning-layout>
+      <br />
+      <template for:each={customers} for:item="customer">
+        <div class="m-bottom-10" key={customer.id}>
+          <lightning-card icon-name="standard:employee_organization">
+            <span slot="title">{customer.customerName} - {customer.cnpj}</span>
+            <lightning-button-menu slot="actions" alternative-text="Show menu" menu-alignment="auto">
+              <lightning-menu-item value="createCustomerSubLimit" label="Criar Sublimite"></lightning-menu-item>
+            </lightning-button-menu>
+            <lightning-layout>
+              <lightning-layout-item padding="horizontal-small">
+                <lightning-input type="number" disabled formatter="currency" step=".01" variant="standard"
+                  name="limitCustomerTotal" value="100000" label="Limite Total Solicitado">
+                </lightning-input>
+              </lightning-layout-item>
+              <lightning-layout-item>
+                <lightning-input type="number" disabled formatter="currency" step=".01" variant="standard"
+                  name="cleanCustomerTotal" value="100000" label="Clean Total">
+                </lightning-input>
+              </lightning-layout-item>
+              <lightning-layout-item padding="horizontal-small">
+                <lightning-input type="text" disabled variant="standard" name="industryCustomer"
+                  value={customer.industry} label="Setor de Atuação">
+                </lightning-input>
+              </lightning-layout-item>
+            </lightning-layout>
+            <br />
+            <div style="padding: 0 10px 0 10px">
+              <c-credit-request-limits limits={customer.limits}>
+              </c-credit-request-limits>
+            </div>
+          </lightning-card>
+        </div>
+      </template>
+      <template if:true={haveGuarantorGroup}>
+        <lightning-accordion allow-multiple-sections-open>
+          <lightning-accordion-section name="guarantorGroup" label="Grupos de Garantidores">
+            EM DESENVOLVIMENTO
+          </lightning-accordion-section>
+        </lightning-accordion>
+      </template>
+    </div>
+  </lightning-card>
+</template>-->

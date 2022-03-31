@@ -1,0 +1,43 @@
+<template>
+  <lightning-layout multiple-rows vertical-align="end">
+    <lightning-layout-item size="5">
+      <lightning-input label="Prazo" type="number" placeholder="Digite a quantidade de dias..."></lightning-input>
+    </lightning-layout-item>
+    <lightning-layout-item size="7" padding="horizontal-small">
+      <p class="m-bottom-05"><b>Dias</b></p>
+    </lightning-layout-item>
+    <lightning-layout-item size="5">
+      <lightning-input label="Carência do Principal" type="currency" placeholder="R$"></lightning-input>
+    </lightning-layout-item>
+    <lightning-layout-item size="2" padding="horizontal-small">
+      &nbsp;
+    </lightning-layout-item>
+    <lightning-layout-item size="5">
+      <lightning-input label="Carência de Encargos" type="currency" placeholder="R$"></lightning-input>
+    </lightning-layout-item>
+    <lightning-layout-item size="5">
+      <lightning-combobox label="Tipo de Amortização" placeholder="Selecione uma opção..."></lightning-combobox>
+    </lightning-layout-item>
+    <lightning-layout-item size="2" padding="horizontal-small">
+      &nbsp;
+    </lightning-layout-item>
+    <lightning-layout-item size="3">
+      <lightning-input label="PMTS" disabled></lightning-input>
+    </lightning-layout-item>
+    <lightning-layout-item size="2" padding="horizontal-small">
+      &nbsp;
+    </lightning-layout-item>
+    <lightning-layout-item size="5">
+      <lightning-combobox label="Pagamento de Encargos" placeholder="Selecione uma opção..."></lightning-combobox>
+    </lightning-layout-item>
+    <lightning-layout-item size="2" padding="horizontal-small">
+      &nbsp;
+    </lightning-layout-item>
+    <lightning-layout-item size="3">
+      <lightning-input label="PMTS" disabled></lightning-input>
+    </lightning-layout-item>
+    <lightning-layout-item size="2" padding="horizontal-small">
+      &nbsp;
+    </lightning-layout-item>
+  </lightning-layout>
+</template>

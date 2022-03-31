@@ -1,0 +1,8 @@
+.slds-readonly-path {
+    pointer-events: none;
+}
+
+/*.green-icon {
+    --sds-c-icon-color-foreground-default: white;
+    --sds-c-icon-color-background: green;
+}*/

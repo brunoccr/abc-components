@@ -1,0 +1,17 @@
+.tableAttributes td {
+  vertical-align: top;
+  padding: 0 1rem 0 1rem;
+}
+
+.tableAttributes td.p-right-2 {
+  padding-right: 2rem;
+}
+
+.badge-m-right-05 {
+  margin-right: 0.5rem;
+}
+
+.green-badge {
+  --sds-c-badge-color-background: #04844B;
+  --slds-c-badge-text-color: #FFF;
+}

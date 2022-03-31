@@ -1,0 +1,11 @@
+.fileUploadContainer {
+  min-height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.checkboxContainer {
+  margin: 0 0 0 4rem;
+}

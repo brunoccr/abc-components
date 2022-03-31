@@ -1,0 +1,88 @@
+<template>
+  <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+      <header class="slds-modal__header">
+        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+          <lightning-icon icon-name="utility:close"
+              alternative-text="close"
+              variant="inverse"
+              size="small" ></lightning-icon>
+          <span class="slds-assistive-text">Close</span>
+        </button>
+        <article class="slds-card">
+          <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+              <div class="slds-media__figure">
+                <lightning-icon size="small" icon-name="standard:currency" alternative-text="Currency" title="Currency"></lightning-icon>
+              </div>
+              <div class="slds-media__body">
+                <h2 class="slds-card__header-title">
+                  <span>
+                    <div slot="title">
+                      Solicitação de Crédito
+                      <p class="subtitle">{currentStepLabel}</p>
+                    </div>
+                  </span>
+                </h2>
+              </div>
+            </header>
+          </div>
+        </article>
+      </header>
+      <div class="slds-modal__content scrollbar" id="modal-content-id-1">
+        <p class="slds-p-around_small">
+          <slot></slot>
+        </p>
+        <!--<lightning-card class="green-icon" icon-name="standard:currency">
+          <div slot="title">
+            Solicitação de Crédito
+            <p class="subtitle">{currentStepLabel}</p>
+          </div>
+          <p class="slds-p-horizontal_small">
+            <slot></slot>
+          </p>
+          <div slot="footer">
+            <lightning-layout horizontal-align="spread" vertical-align="center">
+              <lightning-layout-item flexibility="grow">
+                <div class="slds-readonly-path">
+                  <lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+                    <template for:each={steps} for:item="step">
+                      <lightning-progress-step key={step.id} label={step.label} value={step.id}></lightning-progress-step>
+                    </template>
+                  </lightning-progress-indicator>
+                </div>
+              </lightning-layout-item>
+              <lightning-layout-item padding="horizontal-small">
+                <slot name="previous"></slot>
+              </lightning-layout-item>
+              <lightning-layout-item>
+                <slot name="next"></slot>
+              </lightning-layout-item>
+            </lightning-layout>
+          </div>
+        </lightning-card>-->
+      </div>
+      <footer class="slds-modal__footer">
+        <div slot="footer">
+          <lightning-layout horizontal-align="spread" vertical-align="center">
+            <lightning-layout-item flexibility="grow">
+              <div class="slds-readonly-path">
+                <lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+                  <template for:each={steps} for:item="step">
+                    <lightning-progress-step key={step.id} label={step.label} value={step.id}></lightning-progress-step>
+                  </template>
+                </lightning-progress-indicator>
+              </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="horizontal-small">
+              <slot name="previous"></slot>
+            </lightning-layout-item>
+            <lightning-layout-item>
+              <slot name="next"></slot>
+            </lightning-layout-item>
+          </lightning-layout>
+        </div>
+      </footer>
+    </div>
+  </section> 
+</template>

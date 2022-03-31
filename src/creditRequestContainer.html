@@ -1,0 +1,26 @@
+<template>
+  <lightning-card title="Solicitação de Crédito" class="green-icon" icon-name="standard:currency">
+    <p class="slds-p-horizontal_small">
+      <slot></slot>
+    </p>
+    <div slot="footer">
+      <lightning-layout horizontal-align="spread">
+        <lightning-layout-item>
+          <slot name="previous"></slot>
+        </lightning-layout-item>
+        <lightning-layout-item size="8">
+          <div class="slds-readonly-path">
+            <lightning-progress-indicator current-step={currentStep} type="path" variant="base">
+              <lightning-progress-step label="Valores Iniciais" value="1"></lightning-progress-step>
+              <lightning-progress-step label="Sublimites" value="2"></lightning-progress-step>
+              <lightning-progress-step label="Documentação" value="3"></lightning-progress-step>
+            </lightning-progress-indicator>
+          </div>
+        </lightning-layout-item>
+        <lightning-layout-item>
+          <slot name="next"></slot>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+  </lightning-card>
+</template>

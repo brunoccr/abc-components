@@ -1,0 +1,17 @@
+<template>
+  <div class="fileUploadContainer">
+    <div>
+      <lightning-button label="Enviar Arquivos" icon-name="utility:upload"></lightning-button>
+    </div>
+    <p>ou solte aqui os arquivos</p>
+  </div>
+  <div class="checkboxContainer">
+    <lightning-layout multiple-rows>
+      <template for:each={documents} for:item="document">
+        <lightning-layout-item key={document.id} size="4">
+          <lightning-input type="checkbox" disabled label={document.label} name={document.label} checked={document.value}></lightning-input>
+        </lightning-layout-item>
+      </template>
+    </lightning-layout>
+  </div>
+</template>

@@ -1,0 +1,48 @@
+<template>
+  <lightning-layout>
+    <lightning-layout-item>
+      <lightning-input type="number" required formatter="currency" step=".01" variant="standard" name="limitGroupTotal"
+        label="Limite Total Solicitado Pelo Grupo" placeholder="R$"></lightning-input>
+    </lightning-layout-item>
+    <lightning-layout-item padding="horizontal-small">
+      <lightning-input type="number" required formatter="currency" step=".01" variant="standard" name="cleanGroupTotal"
+        label="Clean Total do Grupo" placeholder="R$"></lightning-input>
+    </lightning-layout-item>
+  </lightning-layout>
+  <br />
+  <lightning-card class="cardCustomers" title="Empresa(s)" icon-name="standard:account">
+    <lightning-layout multiple-rows vertical-align="end">
+      <lightning-layout-item padding="horizontal-small">
+        <lightning-combobox name="customer" required label="Empresa" placeholder="Selecione uma empresa..."
+          options={customersPicklist}>
+        </lightning-combobox>
+      </lightning-layout-item>
+    </lightning-layout>
+    <br />
+    <lightning-layout vertical-align="end">
+      <lightning-layout-item padding="horizontal-small">
+        <lightning-input type="number" required formatter="currency" step=".01" variant="standard"
+          name="cleanGroupTotal" label="Limite Total Solicitado pela Empresa" placeholder="R$"></lightning-input>
+      </lightning-layout-item>
+      <lightning-layout-item>
+        <lightning-input type="number" required formatter="currency" step=".01" variant="standard"
+          name="cleanGroupTotal" label="Limite Total Solicitado pela Empresa" placeholder="R$"></lightning-input>
+      </lightning-layout-item>
+      <lightning-layout-item padding="horizontal-small">
+        <div>
+          <lightning-button-icon icon-name="utility:add" alternative-text="add" title="Add">
+          </lightning-button-icon>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout>
+      <lightning-layout-item size="12" padding="around-small">
+        <div class="tableBorder">
+          <lightning-datatable key-field="id" resize-column-disabled hide-checkbox-column columns={customerColumns}
+            data={customers}>
+          </lightning-datatable>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+  </lightning-card>
+</template>

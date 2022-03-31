@@ -1,0 +1,12 @@
+.card {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.m-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.tableBorder {
+  border: solid 1px #CCC;
+}

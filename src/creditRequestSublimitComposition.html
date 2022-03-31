@@ -1,0 +1,81 @@
+<template>
+  <lightning-layout multiple-rows vertical-align="end" horizontal-align="spread">
+    <lightning-layout-item size="8">
+      <lightning-layout vertical-align="end">
+        <lightning-layout-item>
+          <lightning-input label="Valor" placeholder="R$"></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item padding="horizontal-small">
+          <lightning-input label="Valor Clean" placeholder="R$"></lightning-input>
+        </lightning-layout-item>
+      </lightning-layout>
+    </lightning-layout-item>
+    <lightning-layout-item class="align-right">
+      <lightning-input class="m-bottom-02" type="toggle" checked label="Sublimite Exclusivo"></lightning-input>
+    </lightning-layout-item>
+    <lightning-layout-item>
+      <lightning-layout vertical-align="end">
+        <lightning-layout-item>
+          <lightning-input disabled label="Vencimento Proposto" placeholder="xx/xx/xxxx"></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item padding="horizontal-small">
+          <p class="m-bottom-05"><b>ou</b></p>
+        </lightning-layout-item>
+        <lightning-layout-item>
+          <lightning-input disabled label=" " variant="label-hidden" placeholder="Quantidade de dias..."></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item padding="horizontal-small">
+          <p class="m-bottom-05"><b>Dias</b></p>
+        </lightning-layout-item>
+      </lightning-layout>
+    </lightning-layout-item>
+    <lightning-layout-item>
+      <lightning-input class="m-bottom-02" type="toggle" checked label="Acompanha Vencimento do Grupo"></lightning-input>
+    </lightning-layout-item>
+  </lightning-layout>
+  <br />
+  <lightning-card title="Empresa(s)" icon-name="standard:account">
+    <lightning-layout multiple-rows vertical-align="end" horizontal-align="spread">
+      <lightning-layout-item size="12">
+        <lightning-layout vertical-align="end">
+          <lightning-layout-item padding="horizontal-small" flexibility="grow">
+            <lightning-combobox label="Nome da Empresa" placeholder="Selecione a empresa..." options={customersPicklist}></lightning-combobox>
+          </lightning-layout-item>
+          <lightning-layout-item class="m-right-07">
+            <lightning-button-icon icon-name="utility:add" alternative-text="add" title="Add">
+            </lightning-button-icon>
+          </lightning-layout-item>
+        </lightning-layout>
+      </lightning-layout-item>
+      <lightning-layout-item size="12" padding="around-small">
+        <div class="tableBorder">
+          <lightning-datatable key-field="id" resize-column-disabled hide-checkbox-column columns={customerListColumns} data={customers}></lightning-datatable>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+  </lightning-card>
+  <br />
+  <lightning-card title="Produto(s)" icon-name="standard:products">
+    <lightning-layout multiple-rows>
+      <lightning-layout-item size="12">
+        <lightning-layout vertical-align="end">
+          <lightning-layout-item padding="horizontal-small" flexibility="grow">
+            <lightning-combobox label="Família" placeholder="Selecione a família..." options={familiesPicklist}></lightning-combobox>
+          </lightning-layout-item>
+          <lightning-layout-item  flexibility="grow">
+            <lightning-combobox label="Grupo" disabled placeholder="Selecione o grupo..." options={groupsPicklist}></lightning-combobox>
+          </lightning-layout-item>
+          <lightning-layout-item padding="horizontal-small">
+            <lightning-button-icon icon-name="utility:add" alternative-text="add" title="Add">
+            </lightning-button-icon>
+          </lightning-layout-item>
+        </lightning-layout>
+      </lightning-layout-item>
+      <lightning-layout-item size="12" padding="around-small">
+        <div class="tableBorder">
+          <lightning-datatable key-field="id" resize-column-disabled hide-checkbox-column columns={productListColumns} data={products}></lightning-datatable>
+        </div>
+      </lightning-layout-item>
+    </lightning-layout>
+  </lightning-card>
+</template>

@@ -1,0 +1,33 @@
+<template>
+  <lightning-accordion allow-multiple-sections-open>
+    <template for:each={limits} for:item="limit">
+      <div key={limit.id}>
+        <lightning-card title={limit.name} icon-name="standard:employee_organization">
+          <div slot="actions">
+            <lightning-badge if:true={limit.exclusive} label="Sublimite Exclusivo" class="green-badge"></lightning-badge>
+            <lightning-badge if:true={limit.expirationGroup} label="Acompanha Vencimento do Grupo" class="slds-badge_inverse badge-m-right-05"></lightning-badge>
+            <lightning-button-menu icon-size="x-small" menu-alignment="auto">
+              <lightning-menu-item value="edit" label="Editar"></lightning-menu-item>
+              <lightning-menu-item value="delete" label="Remover"></lightning-menu-item>
+            </lightning-button-menu>
+          </div>
+          <table class="tableAttributes">
+            <tbody>
+              <template for:each={limit.attributes} for:item="attribute">
+                <tr key={attribute.id}>
+                  <td class="p-right-2" style="white-space: nowrap;">
+                    <b>{attribute.label}</b>
+                  </td>
+                  <td width="100%">
+                    {attribute.value}
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </lightning-card>
+        <br />
+      </div>
+    </template>
+  </lightning-accordion>
+</template>
